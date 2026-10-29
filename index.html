@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>צ'אט בזמן אמת</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- מסך התחברות / הרשמה -->
+  <section id="auth" class="auth" hidden>
+    <form id="authForm" class="auth-card">
+      <h1 id="authTitle">התחברות</h1>
+      <input id="phone" type="tel" placeholder="מספר טלפון" autocomplete="tel" required>
+      <input id="nameField" type="text" maxlength="30" placeholder="שם לתצוגה" autocomplete="nickname" hidden>
+      <input id="password" type="password" maxlength="100" placeholder="סיסמה" autocomplete="current-password" required>
+      <p id="authError" class="error" role="alert"></p>
+      <button type="submit" id="authSubmit">התחבר</button>
+      <button type="button" id="authToggle" class="link">אין לך חשבון? הירשם</button>
+    </form>
+  </section>
+
+  <!-- מסך הצ'אט -->
+  <div id="app" class="app" hidden>
+    <aside id="sidebar" class="sidebar">
+      <header class="sidebar-header">
+        <div>
+          <strong id="myName"></strong>
+          <span id="myPhone" class="muted"></span>
+        </div>
+        <button type="button" id="logoutBtn" class="link">התנתק</button>
+      </header>
+
+      <ul id="chatList" class="chat-list"></ul>
+
+      <form id="addContactForm" class="add-contact">
+        <input id="contactPhone" type="tel" placeholder="הוסף לפי מספר טלפון" required>
+        <button type="submit">הוסף</button>
+        <p id="contactError" class="error" role="alert"></p>
+      </form>
+    </aside>
+
+    <main class="chat">
+      <header class="chat-header">
+        <button type="button" id="menuBtn" class="menu-btn" aria-label="תפריט">☰</button>
+        <h1 id="chatTitle">חדר כללי</h1>
+        <span id="status" class="status">מתחבר...</span>
+      </header>
+
+      <ul id="messages" class="messages" aria-live="polite"></ul>
+
+      <form id="composer" class="composer">
+        <input id="text" type="text" maxlength="500" placeholder="כתוב הודעה..." autocomplete="off" required>
+        <button type="submit">שלח</button>
+      </form>
+    </main>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
